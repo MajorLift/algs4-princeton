@@ -1,0 +1,24 @@
+Running checkstyle on PercolationStats.java:
+Starting audit...
+PercolationStats.java:0: Incorrect algs4.jar header format. [RegexpMultiline]
+PercolationStats.java:1:8: Unused import statement for 'edu.princeton.cs.algs4.WeightedQuickUnionUF'. [UnusedImports]
+PercolationStats.java:6:23: The instance variable 'N' must start with a lowercase letter and use camelCase. [MemberName]
+PercolationStats.java:7:23: The instance variable 'T' must start with a lowercase letter and use camelCase. [MemberName]
+PercolationStats.java:10:33: The parameter variable 'N' must start with a lowercase letter and use camelCase. [ParameterName]
+PercolationStats.java:10:40: The parameter variable 'T' must start with a lowercase letter and use camelCase. [ParameterName]
+PercolationStats.java:18:19: '=' is not preceded with whitespace. [WhitespaceAround]
+PercolationStats.java:18:20: '=' is not followed by whitespace. [WhitespaceAround]
+PercolationStats.java:18:24: '<' is not preceded with whitespace. [WhitespaceAround]
+PercolationStats.java:18:25: '<' is not followed by whitespace. [WhitespaceAround]
+PercolationStats.java:21:18: 'while' is not followed by whitespace. [WhitespaceAfter]
+PercolationStats.java:28:10: '//' or '/*' is not followed by whitespace. [IllegalTokenText]
+PercolationStats.java:47:14: 'while' is not followed by whitespace. [WhitespaceAfter]
+PercolationStats.java:56:13: The local variable 'N' must start with a lowercase letter and use camelCase. [LocalVariableName]
+PercolationStats.java:57:13: The local variable 'T' must start with a lowercase letter and use camelCase. [LocalVariableName]
+Audit done.
+Checkstyle ends with 15 errors.
+Running checkstyle on PercolationStats.java:
+Starting audit...
+PercolationStats.java:0: Incorrect algs4.jar header format. [RegexpMultiline]
+Audit done.
+Checkstyle ends with 1 errors.

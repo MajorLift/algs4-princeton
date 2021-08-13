@@ -1,0 +1,17 @@
+Running checkstyle on Percolation.java:
+Starting audit...
+Percolation.java:0: Incorrect algs4.jar header format. [RegexpMultiline]
+Percolation.java:5:23: The instance variable 'N' must start with a lowercase letter and use camelCase. [MemberName]
+Percolation.java:11:28: The parameter variable 'N' must start with a lowercase letter and use camelCase. [ParameterName]
+Percolation.java:43:19: '=' is not preceded with whitespace. [WhitespaceAround]
+Percolation.java:43:20: '=' is not followed by whitespace. [WhitespaceAround]
+Percolation.java:44:23: '=' is not preceded with whitespace. [WhitespaceAround]
+Percolation.java:44:24: '=' is not followed by whitespace. [WhitespaceAround]
+Audit done.
+Checkstyle ends with 7 errors.
+Running checkstyle on Percolation.java:
+
+Starting audit...
+Percolation.java:0: Incorrect algs4.jar header format. [RegexpMultiline]
+Audit done.
+Checkstyle ends with 1 errors.

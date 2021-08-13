@@ -1,0 +1,1 @@
+Running findbugs on Percolation.class:

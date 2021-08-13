@@ -1,0 +1,598 @@
+See the Assessment Guide for information on how to interpret this report.
+
+ASSESSMENT SUMMARY
+
+Compilation:  PASSED
+API:          PASSED
+
+Findbugs:     PASSED
+PMD:          PASSED
+Checkstyle:   FAILED (0 errors, 4 warnings)
+
+Correctness:  21/49 tests passed
+Memory:       10/22 tests passed
+Timing:       0/125 tests passed
+
+Aggregate score: 40.26%
+[Compilation: 5%, API: 5%, Findbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
+
+ASSESSMENT DETAILS
+
+The following files were submitted:
+----------------------------------
+6.2K Aug  4 17:38 Board.java
+4.6K Aug  4 17:38 Solver.java
+
+
+********************************************************************************
+*  COMPILING                                                                    
+********************************************************************************
+
+
+% javac Board.java
+*-----------------------------------------------------------
+
+% javac Solver.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+Checking the APIs of your programs.
+*-----------------------------------------------------------
+Board:
+
+Solver:
+
+================================================================
+
+
+********************************************************************************
+*  CHECKING STYLE AND COMMON BUG PATTERNS                                       
+********************************************************************************
+
+
+% findbugs *.class
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+% pmd .
+*-----------------------------------------------------------
+Solver.java:12: The private instance (or static) variable 'pq' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+Solver.java:13: The private instance (or static) variable 'solution' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+Solver.java:17: The private instance (or static) variable 'twinpq' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+Solver.java:18: The private instance (or static) variable 'twinsolution' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+Solver.java:116: The private instance (or static) variable 'board' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
+PMD ends with 5 warnings.
+
+
+================================================================
+
+
+% checkstyle *.java
+*-----------------------------------------------------------
+[WARN] Solver.java:2:8: Unused import statement for 'java.util.ArrayList'. [UnusedImports]
+[WARN] Solver.java:3:8: Unused import statement for 'java.util.NoSuchElementException'. [UnusedImports]
+Checkstyle ends with 0 errors and 2 warnings.
+
+% custom checkstyle checks for Board.java
+*-----------------------------------------------------------
+
+% custom checkstyle checks for Solver.java
+*-----------------------------------------------------------
+[WARN] Solver.java:12:13: Can you make the variable of type 'MinPQ' a local variable instead of an instance (or static) variable? [Design]
+[WARN] Solver.java:17:13: Can you make the variable of type 'MinPQ' a local variable instead of an instance (or static) variable? [Design]
+Checkstyle ends with 0 errors and 2 warnings.
+
+
+================================================================
+
+
+********************************************************************************
+*  TESTING CORRECTNESS
+********************************************************************************
+
+Testing correctness of Board
+*-----------------------------------------------------------
+Running 24 total tests.
+
+Tests 5, 6, 13, and 14 rely upon toString() returning results in prescribed format.
+
+Test 1a: check hamming() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle07.txt
+  * puzzle17.txt
+  * puzzle27.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 1b: check hamming() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 2a: check manhattan() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle07.txt
+  * puzzle17.txt
+  * puzzle27.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 2b: check manhattan() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 3: check dimension() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 6-by-6
+==> passed
+
+Test 4a: check toString() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 4b: check toString() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 5a: check neighbors() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 5b: check neighbors() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 6a: check neighbors() of neigbors() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 6b: check neighbors() of neighbors() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+==> passed
+
+Test 7a: check twin() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+    java.lang.ArrayIndexOutOfBoundsException: -1
+
+    Board.swap(Board.java:183)
+    Board.twin(Board.java:91)
+    TestBoard.checkTwin(TestBoard.java:591)
+    TestBoard.checkTwin(TestBoard.java:642)
+    TestBoard.test7a(TestBoard.java:1372)
+    TestBoard.main(TestBoard.java:1566)
+
+==> FAILED
+
+Test 7b: check twin() with random n-by-n boards
+  * 2-by-2
+    java.lang.ArrayIndexOutOfBoundsException: -1
+
+    Board.swap(Board.java:183)
+    Board.twin(Board.java:91)
+    TestBoard.checkTwin(TestBoard.java:591)
+    TestBoard.checkTwin(TestBoard.java:627)
+    TestBoard.test7b(TestBoard.java:1379)
+    TestBoard.main(TestBoard.java:1567)
+
+    - failed on trial 1 of 1000
+
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+==> FAILED
+
+Test 8a: check isGoal() with file inputs
+  * puzzle00.txt
+  * puzzle04.txt
+  * puzzle16.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+  * puzzle3x3-unsolvable1.txt
+  * puzzle3x3-00.txt
+  * puzzle4x4-00.txt
+==> passed
+
+Test 8b: check isGoal() on n-by-n goal boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 6-by-6
+  * 100-by-100
+==> passed
+
+Test 9: check that two Board objects can be created at the same time
+  * random 3-by-3 and 3-by-3 boards
+  * random 4-by-4 and 4-by-4 boards
+  * random 2-by-2 and 2-by-2 boards
+  * random 3-by-3 and 4-by-4 boards
+  * random 4-by-4 and 3-by-3 boards
+==> passed
+
+Test 10a: check equals()
+  * reflexive
+  * symmetric
+  * transitive
+  * argument is null
+  * argument is of type String
+  * Board object stored in a variable of type Object
+==> passed
+
+Test 10b: check correctness of equals() on random n-by-n boards
+  * n = 2
+  * n = 3
+  * n = 4
+  * 5 <= n < 10
+==> passed
+
+Test 10c: check equals() when board sizes m and n are different
+  * m = 4, n = 5
+  * m = 2, n = 5
+  * m = 5, n = 3
+  * m = 2, n = 3
+  * m = 3, n = 2
+==> passed
+
+Test 11: check that Board is immutable by changing argument array after
+         construction and making sure Board does not mutate
+==> passed
+
+Test 12: check that Board is immutable by testing whether methods
+         return the same value, regardless of order in which called
+  * puzzle10.txt
+  * puzzle20.txt
+  * puzzle30.txt
+  * 2-by-2
+    java.lang.ArrayIndexOutOfBoundsException: -1
+
+    Board.swap(Board.java:183)
+    Board.twin(Board.java:91)
+    TestBoard.checkImmutableBoard(TestBoard.java:1133)
+    TestBoard.checkImmutableBoard(TestBoard.java:1205)
+    TestBoard.test12(TestBoard.java:1503)
+    TestBoard.main(TestBoard.java:1575)
+
+
+    - failed on trial 1 of 100
+
+  * 3-by-3
+  * 4-by-4
+==> FAILED
+
+Test 13: check dimension() on a board that is kth-neighbor of a board
+  * 0th neighbor of puzzle27.txt
+  * 1st neighbor of puzzle27.txt
+  * 2nd neighbor of puzzle27.txt
+  * 13th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle00.txt
+  * 13th neighbor of puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 14: check hamming() on a board that is kth-neighbor of a board
+  * 0th neighbor of puzzle27.txt
+  * 1st neighbor of puzzle27.txt
+  * 2nd neighbor of puzzle27.txt
+  * 13th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle00.txt
+  * 13th neighbor of puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 15: check manhattan() on a board that is a kth-neighbor of a board
+  * 0th neighbor of puzzle27.txt
+  * 1st neighbor of puzzle27.txt
+  * 2nd neighbor of puzzle27.txt
+  * 13th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle00.txt
+  * 13th neighbor of puzzle2x2-unsolvable1.txt
+==> passed
+
+
+Total: 21/24 tests passed!
+
+
+================================================================
+********************************************************************************
+*  MEMORY
+********************************************************************************
+
+Analyzing memory of Board
+*-----------------------------------------------------------
+Running 10 total tests.
+
+Memory usage of an n-by-n board
+[ must be at most 4n^2 + 32n + 64 bytes ]
+
+
+              n       student (bytes)    reference (bytes)
+----------------------------------------------------------
+=> passed     2           136                  128
+=> passed     3           200                  192
+=> passed     4           248                  240
+=> passed     8           568                  560
+=> passed    12          1016                 1008
+=> passed    16          1592                 1584
+=> passed    20          2296                 2288
+=> passed    37          6864                 6856
+=> passed    72         23096                23088
+=> passed   120         61496                61488
+==> 10/10 tests passed
+
+Total: 10/10 tests passed!
+
+Student   memory = 4.00 n^2 + 32.00 n + 56.00   (R^2 = 1.000)
+Reference memory = 4.00 n^2 + 32.00 n + 48.00   (R^2 = 1.000)
+
+================================================================
+
+
+
+********************************************************************************
+*  TESTING CORRECTNESS (substituting reference Board)
+********************************************************************************
+
+Testing correctness of Solver
+*-----------------------------------------------------------
+Running 25 total tests.
+
+Test 1a: check moves() with file inputs
+  * puzzle00.txt
+    - moves() returns wrong value
+    - student   moves() = 3
+    - reference moves() = 0
+    - board =
+        10
+         1  2  3  4  5  6  7  8  9 10 
+        11 12 13 14 15 16 17 18 19 20 
+        21 22 23 24 25 26 27 28 29 30 
+        31 32 33 34 35 36 37 38 39 40 
+        41 42 43 44 45 46 47 48 49 50 
+        51 52 53 54 55 56 57 58 59 60 
+        61 62 63 64 65 66 67 68 69 70 
+        71 72 73 74 75 76 77 78 79 80 
+        81 82 83 84 85 86 87 88 89 90 
+        91 92 93 94 95 96 97 98 99  0 
+
+  * puzzle01.txt
+  * puzzle02.txt
+  * puzzle03.txt
+  * puzzle04.txt
+  * puzzle05.txt
+  * puzzle06.txt
+  * puzzle07.txt
+    - moves() returns wrong value
+    - student   moves() = 118
+    - reference moves() = 7
+    - board =
+        3
+         1  2  3 
+         0  7  6 
+         5  4  8 
+
+  * puzzle08.txt
+    - moves() returns wrong value
+    - student   moves() = 9
+    - reference moves() = 8
+    - board =
+        3
+         2  3  5 
+         1  0  4 
+         7  8  6 
+
+  * puzzle09.txt
+  * puzzle10.txt
+  * puzzle11.txt
+    - moves() returns wrong value
+    - student   moves() = 97482
+    - reference moves() = 11
+    - board =
+        3
+         1  0  2 
+         7  5  4 
+         8  6  3 
+
+  * puzzle12.txt
+    - moves() returns wrong value
+    - student   moves() = 214387
+    - reference moves() = 12
+    - board =
+        5
+         1  2  3  4  5 
+        12  6  8  9 10 
+         0  7 13 19 14 
+        11 16 17 18 15 
+        21 22 23 24 20 
+
+  * puzzle13.txt
+==> FAILED
+
+Test 1b: check solution() with file inputs
+  * puzzle00.txt
+    - boards 1 and 2 in student solution() are not neighbors
+        10
+         1  2  3  4  5  6  7  8  9 10 
+        11 12 13 14 15 16 17 18 19 20 
+        21 22 23 24 25 26 27 28 29 30 
+        31 32 33 34 35 36 37 38 39 40 
+        41 42 43 44 45 46 47 48 49 50 
+        51 52 53 54 55 56 57 58 59 60 
+        61 62 63 64 65 66 67 68 69 70 
+        71 72 73 74 75 76 77 78 79 80 
+        81 82 83 84 85 86 87 88 89 90 
+        91 92 93 94 95 96 97 98  0 99 
+
+        10
+         1  2  3  4  5  6  7  8  9 10 
+        11 12 13 14 15 16 17 18 19 20 
+        21 22 23 24 25 26 27 28 29 30 
+        31 32 33 34 35 36 37 38 39 40 
+        41 42 43 44 45 46 47 48 49 50 
+        51 52 53 54 55 56 57 58 59 60 
+        61 62 63 64 65 66 67 68 69 70 
+        71 72 73 74 75 76 77 78 79 80 
+        81 82 83 84 85 86 87 88 89  0 
+        91 92 93 94 95 96 97 98 99 90 
+
+  * puzzle01.txt
+  * puzzle02.txt
+  * puzzle03.txt
+  * puzzle04.txt
+  * puzzle05.txt
+  * puzzle06.txt
+  * puzzle07.txt
+    - boards 1 and 2 in student solution() are not neighbors
+        3
+         1  2  3 
+         5  7  6 
+         0  4  8 
+
+        3
+         1  2  3 
+         7  0  6 
+         5  4  8 
+
+  * puzzle08.txt
+    - boards 2 and 3 in student solution() are not neighbors
+        3
+         2  3  5 
+         1  4  6 
+         7  8  0 
+
+        3
+         2  3  0 
+         1  4  5 
+         7  8  6 
+
+  * puzzle09.txt
+  * puzzle10.txt
+  * puzzle11.txt
+    - boards 1 and 2 in student solution() are not neighbors
+        3
+         1  2  0 
+         7  5  4 
+         8  6  3 
+
+        3
+         0  1  2 
+         7  5  4 
+         8  6  3 
+
+  * puzzle12.txt
+    - boards 1 and 2 in student solution() are not neighbors
+        5
+         1  2  3  4  5 
+        12  6  8  9 10 
+        11  7 13 19 14 
+         0 16 17 18 15 
+        21 22 23 24 20 
+
+        5
+         1  2  3  4  5 
+         0  6  8  9 10 
+        12  7 13 19 14 
+        11 16 17 18 15 
+        21 22 23 24 20 
+
+  * puzzle13.txt
+==> FAILED
+
+Test 2a: check moves() with more file inputs
+  * puzzle14.txt
+
+
+Total: 0/25 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+********************************************************************************
+*  MEMORY (substituting reference Board)
+********************************************************************************
+
+Analyzing memory of Solver
+*-----------------------------------------------------------
+Running 12 total tests.
+
+Maximum allowed time per puzzle is 5.0 seconds.
+Maximum allowed memory per puzzle = 200000000 bytes.
+
+
+Total: 0/12 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+
+
+
+********************************************************************************
+*  TIMING (substituting reference Board)
+********************************************************************************
+
+Timing Solver
+*-----------------------------------------------------------
+Running 125 total tests.
+
+Maximum allowed time per puzzle is 5.0 seconds.
+
+
+
+Total: 0/125 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+
