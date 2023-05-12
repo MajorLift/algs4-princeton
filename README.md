@@ -19,7 +19,7 @@ Coursework implementations for the Princeton Algorithms I, II MOOC on Coursera
 - **SSSP, Dijkstra's, MST**
   - *Seam Carving*: https://coursera.cs.princeton.edu/algs4/assignments/seam/specification.php
 - **MaxFlow, MinCut**
-  - *Baseball Eliminatio*: https://coursera.cs.princeton.edu/algs4/assignments/baseball/specification.php
+  - *Baseball Elimination*: https://coursera.cs.princeton.edu/algs4/assignments/baseball/specification.php
 - **Substring Search, KMP**
   - *Boggle*: https://coursera.cs.princeton.edu/algs4/assignments/boggle/specification.php
 - **Huffman Compression, RLE**
